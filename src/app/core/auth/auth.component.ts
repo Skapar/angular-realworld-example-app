@@ -63,7 +63,8 @@ export default class AuthComponent implements OnInit {
     }
   }
 
-  submitForm(): void { // you need this for Task 2
+  submitForm(): void {
+    // you need this for Task 2
     this.isSubmitting = true;
     this.errors = { errors: {} };
 
@@ -82,7 +83,7 @@ export default class AuthComponent implements OnInit {
 
     observable.pipe(takeUntilDestroyed(this.destroyRef)).subscribe({
       next: () => void this.router.navigate(["/"]),
-      error: (err) => {
+      error: (err: Errors) => {
         this.errors = err;
         this.isSubmitting = false;
       },
